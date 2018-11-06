@@ -71,6 +71,8 @@ lemma [] (_ :: _) = refl
 lemma (H :: T) L =  let open  ≡-Reasoning in
   begin
     (length (H :: T)) + length L
-  ≡⟨ cong (_+_ 1) (lemma T L) ⟩
-    1 + length (T ++ L)
+  ≡⟨ refl ⟩
+    suc ( length T ) + length L
+  ≡⟨ cong suc ( lemma T L ) ⟩
+    suc ( length ( T ++ L ) )
   ∎
